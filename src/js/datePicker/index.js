@@ -769,7 +769,7 @@ export default class datePicker extends EventEmitter {
                 }
             } else {
                 if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                    day.firstElementChild.disabled = fale
+                    day.firstElementChild.disabled = false
                 }
             }
         });

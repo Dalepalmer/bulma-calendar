@@ -58945,7 +58945,7 @@ var datePicker = function (_EventEmitter) {
                     }
                 } else {
                     if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                        day.firstElementChild.disabled = fale;
+                        day.firstElementChild.disabled = false;
                     }
                 }
             });
