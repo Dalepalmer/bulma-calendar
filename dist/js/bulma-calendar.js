@@ -58931,7 +58931,20 @@ var datePicker = function (_EventEmitter) {
 
             this._ui.body.dates.appendChild(document.createRange().createContextualFragment(Object(__WEBPACK_IMPORTED_MODULE_5__templates_days__["a" /* default */])(days)));
             this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
+            this._disable_buttons();
             this._bindDaysEvents();
+        }
+    }, {
+        key: '_disable_buttons',
+        value: function _disable_buttons() {
+            var disabled_days = this._ui.body.dates.querySelectorAll('.datepicker-date');
+            disabled_days.forEach(function (day) {
+                if (day.classList.contains("is-disabled")) {
+                    day.firstChild.disabled = true;
+                } else {
+                    day.firstChild.disabled = false;
+                }
+            });
         }
     }, {
         key: '_select',
@@ -59192,7 +59205,7 @@ var datePicker = function (_EventEmitter) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function (data) {
-  return "<div class=\"datepicker\">\n    <div class=\"datepicker-nav\">\n        <button type=\"button\" class=\"datepicker-nav-previous button is-small is-text\">" + data.icons.previous + "</button>\n        <div class=\"datepicker-nav-month-year\">\n          <div class=\"datepicker-nav-month\"></div>\n          &nbsp;\n          <div class=\"datepicker-nav-year\"></div>\n        </div>\n        <button type=\"button\" class=\"datepicker-nav-next button is-small is-text\">" + data.icons.next + "</button>\n      </div>\n      <div class=\"datepicker-body\">\n        <div class=\"datepicker-dates is-active\"></div>\n        <div class=\"datepicker-months\"></div>\n        <div class=\"datepicker-years\"></div>\n      </div>\n    </div>";
+  return "<div class=\"datepicker\">\n    <div class=\"datepicker-nav\">\n        <button aria-label=\"previous month\" type=\"button\" class=\"datepicker-nav-previous button is-small is-text\">" + data.icons.previous + "</button>\n        <div class=\"datepicker-nav-month-year\">\n          <div aria-live=\"polite\" class=\"datepicker-nav-month\"></div>\n          &nbsp;\n          <div aria-live=\"polite\" class=\"datepicker-nav-year\"></div>\n        </div>\n        <button aria-label=\"next month\" type=\"button\" class=\"datepicker-nav-next button is-small is-text\">" + data.icons.next + "</button>\n      </div>\n      <div class=\"datepicker-body\">\n        <div class=\"datepicker-dates is-active\"></div>\n        <div class=\"datepicker-months\"></div>\n        <div class=\"datepicker-years\"></div>\n      </div>\n    </div>";
 });
 
 /***/ }),

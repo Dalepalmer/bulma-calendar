@@ -735,6 +735,8 @@ export default class datePicker extends EventEmitter {
                 });
             }
 
+
+
             return {
                 date:          theDate,
                 isRange:       this.options.isRange,
@@ -750,10 +752,23 @@ export default class datePicker extends EventEmitter {
 
         });
 
+       
         this._ui.body.dates.appendChild(document.createRange().createContextualFragment(templateDays(days)));
         this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
+        this._disable_buttons();
         this._bindDaysEvents();
 
+    }
+
+    _disable_buttons() {
+        var disabled_days = this._ui.body.dates.querySelectorAll('.datepicker-date')
+        disabled_days.forEach((day) => {
+            if (day.classList.contains("is-disabled")) {
+                day.firstChild.disabled = true
+            } else {
+                day.firstChild.disabled = false
+            }
+        });
     }
 
     _select(date = undefined, emit = true) {
