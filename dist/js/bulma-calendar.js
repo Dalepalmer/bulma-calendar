@@ -58940,9 +58940,13 @@ var datePicker = function (_EventEmitter) {
             var disabled_days = this._ui.body.dates.querySelectorAll('.datepicker-date');
             disabled_days.forEach(function (day) {
                 if (day.classList.contains("is-disabled")) {
-                    day.firstElementChild.disabled = true;
+                    if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
+                        day.firstElementChild.disabled = true;
+                    }
                 } else {
-                    day.firstElementChild.disabled = false;
+                    if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
+                        day.firstElementChild.disabled = fale;
+                    }
                 }
             });
         }
