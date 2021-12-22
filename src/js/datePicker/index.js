@@ -707,7 +707,7 @@ export default class datePicker extends EventEmitter {
                         focusedDay.classList.remove('is-focused');
                     });
                 }
-                if (children.childElementCount >= newIndex) {
+                if (children.length >= newIndex) {
                     var child = e.target.parentElement.parentElement.children[index]
                     if (child) {
                         child.focus()
