@@ -58843,7 +58843,7 @@ var datePicker = function (_EventEmitter) {
         value: function _bindDaysEvents() {
             var _this4 = this;
 
-            [].forEach.call(this._ui.days, function (day) {
+            [].forEach.call(this._ui.days, function (day, index) {
                 _this4._clickEvents.forEach(function (clickEvent) {
                     // if not in range, no click action
                     // if in this month, select the date
@@ -58853,7 +58853,39 @@ var datePicker = function (_EventEmitter) {
                 });
 
                 day.addEventListener('hover', function (e) {
-                    e.preventDEfault();
+                    e.preventDefault();
+                });
+
+                day.addEventListener('keydown', function (e) {
+                    e.preventDefault();
+                    var newIndex = index;
+                    switch (e.key) {
+                        case "ArrowUp":
+                            newIndex = index + 7;
+                        case "ArrowDown":
+                            newIndex = index - 7;
+                        case "ArrowLeft":
+                            newIndex = index - 1;
+                        case "ArrowRight":
+                            newIndex = index + 1;
+                        case "Enter":
+                        case "Space":
+                            e.target.click();
+                        default:
+                            {}
+                            var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild;
+                            var focusedDays = document.querySelectorAll(".date-item.is-focused");
+                            if (focusedDays) {
+                                _this4.disabledWeekDays.forEach(function (focusedDay) {
+                                    focusedDay.classList.remove('is-focused');
+                                });
+                            }
+                            if (child) {
+                                child.focus();
+                                child.classList.add("is-focused");
+                            }
+
+                    }
                 });
             });
         }
@@ -59217,8 +59249,8 @@ var datePicker = function (_EventEmitter) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function (data) {
-  return '<div class="datepicker-days">' + data.map(function (theDate) {
-    return '<div data-date="' + theDate.date.toString() + '" class="datepicker-date' + (theDate.isThisMonth ? ' is-current-month' : '') + (theDate.isDisabled ? ' is-disabled' : '') + (theDate.isRange && theDate.isInRange ? ' datepicker-range' : '') + (theDate.isStartDate ? ' datepicker-range-start' : '') + (theDate.isEndDate ? ' datepicker-range-end' : '') + '">\n      <button aria-label="' + theDate.dateLabel + '" class="date-item' + (theDate.isToday ? ' is-today' : '') + (theDate.isHighlighted ? ' is-highlighted' : '') + (theDate.isStartDate ? ' is-active' : '') + '" type="button">' + theDate.date.getDate() + '</button>\n  </div>';
+  return '<div class="datepicker-days">' + data.map(function (theDate, index) {
+    return '<div data-date="' + theDate.date.toString() + '" class="datepicker-date' + (theDate.isThisMonth ? ' is-current-month' : '') + (theDate.isDisabled ? ' is-disabled' : '') + (theDate.isRange && theDate.isInRange ? ' datepicker-range' : '') + (theDate.isStartDate ? ' datepicker-range-start' : '') + (theDate.isEndDate ? ' datepicker-range-end' : '') + '">\n      <button data-index="index" aria-label="' + theDate.dateLabel + '" class="date-item' + (theDate.isToday ? ' is-today' : '') + (theDate.isHighlighted ? ' is-highlighted' : '') + (theDate.isStartDate ? ' is-active' : '') + '" type="button">' + theDate.date.getDate() + '</button>\n  </div>';
   }).join('') + '</div>';
 });
 

@@ -665,7 +665,7 @@ export default class datePicker extends EventEmitter {
      * @return {void}
      */
     _bindDaysEvents() {
-        [].forEach.call(this._ui.days, (day) => {
+        [].forEach.call(this._ui.days, (day, index) => {
             this._clickEvents.forEach((clickEvent) => {
                 // if not in range, no click action
                 // if in this month, select the date
@@ -675,7 +675,40 @@ export default class datePicker extends EventEmitter {
             });
 
             day.addEventListener('hover', (e) => {
-                e.preventDEfault();
+                e.preventDefault();
+            });
+
+            day.addEventListener('keydown', (e) => {
+                e.preventDefault();
+                var newIndex = index
+                switch (e.key) {
+                case "ArrowUp": 
+                    newIndex = index + 7
+                case "ArrowDown": 
+                    newIndex = index - 7
+                case "ArrowLeft": 
+                    newIndex = index - 1
+                case "ArrowRight": 
+                    newIndex = index + 1
+                case "Enter":
+                case "Space": 
+                    e.target.click()
+                default: {
+
+                }
+                var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild
+                var focusedDays = document.querySelectorAll(".date-item.is-focused")
+                if (focusedDays) {
+                    this.disabledWeekDays.forEach((focusedDay) => {
+                        focusedDay.classList.remove('is-focused');
+                    });
+                }
+                if (child) {
+                    child.focus()
+                    child.classList.add("is-focused")
+                }
+
+                }  
             });
         });
     }
