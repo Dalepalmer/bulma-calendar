@@ -695,11 +695,10 @@ export default class datePicker extends EventEmitter {
             isDisabled        = !isDisabled && this.min ? dateFns.isBefore(dateFns.startOfDay(theDate), dateFns.startOfDay(this.min)) : isDisabled;
             let isHighlighted = false;
             const dateLabel   = dateFns.format(theDate, "PPP")
-
             // Disabled Dates
             if (Array.isArray(this.disabledDates)) {
                 for (let j = 0; j < this.disabledDates.length; j++) {
-                    if (theDate.toDateString() === this.disabledDates[j].toDateString()) {
+                    if (theDate.toDateString() === new Date(this.disabledDates[j]).toDateString()) {
                         isDisabled = true;
                     }
                 }
@@ -714,7 +713,7 @@ export default class datePicker extends EventEmitter {
             // Highlighted Dates
             if (Array.isArray(this.highlightedDates)) {
                 for (let j = 0; j < this.highlightedDates.length; j++) {
-                    if (theDate.toDateString() === this.highlightedDates[j].toDateString()) {
+                    if (theDate.toDateString() === new Date(this.disabledDates[j]).toDateString()) {
                         isHighlighted = true;
                     }
                 }

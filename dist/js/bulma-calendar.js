@@ -58875,11 +58875,10 @@ var datePicker = function (_EventEmitter) {
                 isDisabled = !isDisabled && _this5.min ? __WEBPACK_IMPORTED_MODULE_2_date_fns__["s" /* isBefore */](__WEBPACK_IMPORTED_MODULE_2_date_fns__["F" /* startOfDay */](theDate), __WEBPACK_IMPORTED_MODULE_2_date_fns__["F" /* startOfDay */](_this5.min)) : isDisabled;
                 var isHighlighted = false;
                 var dateLabel = __WEBPACK_IMPORTED_MODULE_2_date_fns__["l" /* format */](theDate, "PPP");
-
                 // Disabled Dates
                 if (Array.isArray(_this5.disabledDates)) {
                     for (var j = 0; j < _this5.disabledDates.length; j++) {
-                        if (theDate.toDateString() === _this5.disabledDates[j].toDateString()) {
+                        if (theDate.toDateString() === new Date(_this5.disabledDates[j]).toDateString()) {
                             isDisabled = true;
                         }
                     }
@@ -58894,7 +58893,7 @@ var datePicker = function (_EventEmitter) {
                 // Highlighted Dates
                 if (Array.isArray(_this5.highlightedDates)) {
                     for (var _j = 0; _j < _this5.highlightedDates.length; _j++) {
-                        if (theDate.toDateString() === _this5.highlightedDates[_j].toDateString()) {
+                        if (theDate.toDateString() === new Date(_this5.disabledDates[_j]).toDateString()) {
                             isHighlighted = true;
                         }
                     }
