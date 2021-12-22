@@ -58861,10 +58861,10 @@ var datePicker = function (_EventEmitter) {
                     var newIndex = index;
                     switch (e.key) {
                         case "ArrowUp":
-                            newIndex = index + 7;
+                            newIndex = index - 7;
                             break;
                         case "ArrowDown":
-                            newIndex = index - 7;
+                            newIndex = index + 7;
                             break;
                         case "ArrowLeft":
                             newIndex = index - 1;
@@ -58878,16 +58878,19 @@ var datePicker = function (_EventEmitter) {
                             break;
                         default:
                     }
-                    var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild;
+                    var children = e.target.parentElement.parentElement.children;
                     var focusedDays = document.querySelectorAll(".date-item.is-focused");
                     if (focusedDays) {
                         _this4.disabledWeekDays.forEach(function (focusedDay) {
                             focusedDay.classList.remove('is-focused');
                         });
                     }
-                    if (child) {
-                        child.focus();
-                        child.classList.add("is-focused");
+                    if (children.childElementCount >= newIndex) {
+                        var child = e.target.parentElement.parentElement.children[index];
+                        if (child) {
+                            child.focus();
+                            child.classList.add("is-focused");
+                        }
                     }
                 });
             });
