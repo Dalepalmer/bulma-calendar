@@ -682,19 +682,18 @@ export default class datePicker extends EventEmitter {
                 e.preventDefault();
                 var newIndex = index
                 switch (e.key) {
-                case "ArrowUp": 
-                    newIndex = index + 7
-                case "ArrowDown": 
-                    newIndex = index - 7
-                case "ArrowLeft": 
-                    newIndex = index - 1
-                case "ArrowRight": 
-                    newIndex = index + 1
-                case "Enter":
-                case "Space": 
-                    e.target.click()
-                default: {
-
+                    case "ArrowUp": 
+                        newIndex = index + 7
+                    case "ArrowDown": 
+                        newIndex = index - 7
+                    case "ArrowLeft": 
+                        newIndex = index - 1
+                    case "ArrowRight": 
+                        newIndex = index + 1
+                    case "Enter":
+                    case "Space": 
+                        e.target.click()
+                    default:
                 }
                 var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild
                 var focusedDays = document.querySelectorAll(".date-item.is-focused")
@@ -706,8 +705,6 @@ export default class datePicker extends EventEmitter {
                 if (child) {
                     child.focus()
                     child.classList.add("is-focused")
-                }
-
                 }  
             });
         });

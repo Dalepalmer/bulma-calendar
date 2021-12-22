@@ -58872,19 +58872,17 @@ var datePicker = function (_EventEmitter) {
                         case "Space":
                             e.target.click();
                         default:
-                            {}
-                            var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild;
-                            var focusedDays = document.querySelectorAll(".date-item.is-focused");
-                            if (focusedDays) {
-                                _this4.disabledWeekDays.forEach(function (focusedDay) {
-                                    focusedDay.classList.remove('is-focused');
-                                });
-                            }
-                            if (child) {
-                                child.focus();
-                                child.classList.add("is-focused");
-                            }
-
+                    }
+                    var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild;
+                    var focusedDays = document.querySelectorAll(".date-item.is-focused");
+                    if (focusedDays) {
+                        _this4.disabledWeekDays.forEach(function (focusedDay) {
+                            focusedDay.classList.remove('is-focused');
+                        });
+                    }
+                    if (child) {
+                        child.focus();
+                        child.classList.add("is-focused");
                     }
                 });
             });
