@@ -58862,15 +58862,20 @@ var datePicker = function (_EventEmitter) {
                     switch (e.key) {
                         case "ArrowUp":
                             newIndex = index + 7;
+                            break;
                         case "ArrowDown":
                             newIndex = index - 7;
+                            break;
                         case "ArrowLeft":
                             newIndex = index - 1;
+                            break;
                         case "ArrowRight":
                             newIndex = index + 1;
+                            break;
                         case "Enter":
                         case "Space":
                             e.target.click();
+                            break;
                         default:
                     }
                     var child = e.target.parentElement.parentElement.children[newIndex].firstElementChild;
