@@ -58886,7 +58886,7 @@ var datePicker = function (_EventEmitter) {
                         });
                     }
                     if (children.length >= newIndex) {
-                        var child = _this4._ui.days[newIndex];
+                        var child = _this4._ui.days[newIndex].firstElementChild;
                         if (child) {
                             child.focus();
                             child.classList.add("is-focused");
