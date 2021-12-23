@@ -58878,7 +58878,7 @@ var datePicker = function (_EventEmitter) {
                             break;
                         default:
                     }
-                    var children = e.target.parentElement.parentElement.children;
+                    var children = _this4._ui.days;
                     var focusedDays = document.querySelectorAll(".date-item.is-focused");
                     if (focusedDays) {
                         _this4.disabledWeekDays.forEach(function (focusedDay) {
@@ -58886,7 +58886,7 @@ var datePicker = function (_EventEmitter) {
                         });
                     }
                     if (children.length >= newIndex) {
-                        var child = e.target.parentElement.parentElement.children[index].firstElementChild;
+                        var child = _this4._ui.days[newIndex];
                         if (child) {
                             child.focus();
                             child.classList.add("is-focused");

@@ -700,7 +700,7 @@ export default class datePicker extends EventEmitter {
                         break;
                     default:
                 }
-                var children = e.target.parentElement.parentElement.children
+                var children = this._ui.days
                 var focusedDays = document.querySelectorAll(".date-item.is-focused")
                 if (focusedDays) {
                     this.disabledWeekDays.forEach((focusedDay) => {
@@ -708,7 +708,7 @@ export default class datePicker extends EventEmitter {
                     });
                 }
                 if (children.length >= newIndex) {
-                    var child = e.target.parentElement.parentElement.children[index].firstElementChild
+                    var child = this._ui.days[newIndex]
                     if (child) {
                         child.focus()
                         child.classList.add("is-focused")
