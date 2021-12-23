@@ -58857,9 +58857,8 @@ var datePicker = function (_EventEmitter) {
                 });
 
                 day.addEventListener('keydown', function (e) {
-                    e.preventDefault();
                     var newIndex = index;
-                    switch (e.key) {
+                    switch (e.code) {
                         case "ArrowUp":
                             newIndex = index - 7;
                             break;
@@ -58876,6 +58875,9 @@ var datePicker = function (_EventEmitter) {
                         case "Space":
                             e.target.click();
                             break;
+                        case "Tab":
+                            e.target.click();
+                            break;
                         default:
                     }
                     var children = _this4._ui.days;
@@ -58886,10 +58888,10 @@ var datePicker = function (_EventEmitter) {
                         });
                     }
                     if (children.length >= newIndex) {
-                        var child = _this4._ui.days[newIndex].firstElementChild;
-                        if (child) {
-                            child.focus();
-                            child.classList.add("is-focused");
+                        var child = _this4._ui.days[newIndex];
+                        if (child && child.children.length >= 1) {
+                            child.firstElementChild.focus();
+                            child.first.firstElementChild.classList.add("is-focused");
                         }
                     }
                 });
@@ -59256,7 +59258,7 @@ var datePicker = function (_EventEmitter) {
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function (data) {
   return '<div class="datepicker-days">' + data.map(function (theDate, index) {
-    return '<div data-date="' + theDate.date.toString() + '" class="datepicker-date' + (theDate.isThisMonth ? ' is-current-month' : '') + (theDate.isDisabled ? ' is-disabled' : '') + (theDate.isRange && theDate.isInRange ? ' datepicker-range' : '') + (theDate.isStartDate ? ' datepicker-range-start' : '') + (theDate.isEndDate ? ' datepicker-range-end' : '') + '">\n      <button data-index="index" aria-label="' + theDate.dateLabel + '" class="date-item' + (theDate.isToday ? ' is-today' : '') + (theDate.isHighlighted ? ' is-highlighted' : '') + (theDate.isStartDate ? ' is-active' : '') + '" type="button">' + theDate.date.getDate() + '</button>\n  </div>';
+    return '<div data-date="' + theDate.date.toString() + '" class="datepicker-date' + (theDate.isThisMonth ? ' is-current-month' : '') + (theDate.isDisabled ? ' is-disabled' : '') + (theDate.isRange && theDate.isInRange ? ' datepicker-range' : '') + (theDate.isStartDate ? ' datepicker-range-start' : '') + (theDate.isEndDate ? ' datepicker-range-end' : '') + '">\n      <button data-index="index" tabindex="-1" aria-label="' + theDate.dateLabel + '" class="date-item' + (theDate.isToday ? ' is-today' : '') + (theDate.isHighlighted ? ' is-highlighted' : '') + (theDate.isStartDate ? ' is-active' : '') + '" type="button">' + theDate.date.getDate() + '</button>\n  </div>';
   }).join('') + '</div>';
 });
 

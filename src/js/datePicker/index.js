@@ -679,9 +679,8 @@ export default class datePicker extends EventEmitter {
             });
 
             day.addEventListener('keydown', (e) => {
-                e.preventDefault();
                 var newIndex = index
-                switch (e.key) {
+                switch (e.code) {
                     case "ArrowUp": 
                         newIndex = index - 7
                         break;
@@ -698,6 +697,9 @@ export default class datePicker extends EventEmitter {
                     case "Space": 
                         e.target.click()
                         break;
+                    case "Tab": 
+                        e.target.click()
+                    break;
                     default:
                 }
                 var children = this._ui.days
@@ -708,10 +710,10 @@ export default class datePicker extends EventEmitter {
                     });
                 }
                 if (children.length >= newIndex) {
-                    var child = this._ui.days[newIndex].firstElementChild
-                    if (child) {
-                        child.focus()
-                        child.classList.add("is-focused")
+                    var child = this._ui.days[newIndex]
+                    if (child && child.children.length >= 1) {
+                        child.firstElementChild.focus()
+                        child.first.firstElementChild.classList.add("is-focused")
                     }
                 }  
             });
