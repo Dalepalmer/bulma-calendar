@@ -703,7 +703,7 @@ export default class datePicker extends EventEmitter {
                 var children = this._ui.days
                 var focusedDays = document.querySelectorAll(".date-item.is-focused")
                 if (focusedDays) {
-                    this.disabledWeekDays.forEach((focusedDay) => {
+                    focusedDays.forEach((focusedDay) => {
                         focusedDay.classList.remove('is-focused');
                     });
                 }

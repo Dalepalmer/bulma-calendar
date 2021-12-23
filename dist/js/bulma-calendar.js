@@ -58881,7 +58881,7 @@ var datePicker = function (_EventEmitter) {
                     var children = _this4._ui.days;
                     var focusedDays = document.querySelectorAll(".date-item.is-focused");
                     if (focusedDays) {
-                        _this4.disabledWeekDays.forEach(function (focusedDay) {
+                        focusedDays.forEach(function (focusedDay) {
                             focusedDay.classList.remove('is-focused');
                         });
                     }
