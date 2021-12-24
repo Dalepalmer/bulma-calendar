@@ -58889,7 +58889,10 @@ var datePicker = function (_EventEmitter) {
                     var children = _this4._ui.days;
                     var oldChild = _this4._ui.days[index];
                     if (oldChild && oldChild.children.length >= 1) {
-                        oldChild.firstElementChild.focus();
+                        console.log(index, "index");
+                        console.log(newIndex, "new");
+                        console.log(oldChild.firstElementChild);
+                        oldChild.firstElementChild.blur();
                         oldChild.firstElementChild.tabIndex = "-1";
                         oldChild.firstElementChild.classList.remove("is-focused");
                     }
@@ -58900,6 +58903,12 @@ var datePicker = function (_EventEmitter) {
                             child.firstElementChild.focus();
                             child.firstElementChild.tabIndex = "0";
                             child.firstElementChild.classList.add("is-focused");
+                        }
+                        if (newIndex == 0) {
+                            _this4.onPreviousDatePicker(e);
+                        }
+                        if (newIndex == _this4._ui.days.length) {
+                            _this4.onNextDatePicker(e);
                         }
                     }
                 });

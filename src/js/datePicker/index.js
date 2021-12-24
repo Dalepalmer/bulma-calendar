@@ -711,7 +711,10 @@ export default class datePicker extends EventEmitter {
                 var children = this._ui.days
                 var oldChild = this._ui.days[index]
                 if (oldChild && oldChild.children.length >= 1) {
-                    oldChild.firstElementChild.focus()
+                    console.log(index, "index")
+                    console.log(newIndex, "new")
+                    console.log(oldChild.firstElementChild)
+                    oldChild.firstElementChild.blur()
                     oldChild.firstElementChild.tabIndex = "-1"
                     oldChild.firstElementChild.classList.remove("is-focused")
                 }
@@ -722,6 +725,12 @@ export default class datePicker extends EventEmitter {
                         child.firstElementChild.focus()
                         child.firstElementChild.tabIndex = "0"
                         child.firstElementChild.classList.add("is-focused")
+                    }
+                    if (newIndex == 0) {
+                        this.onPreviousDatePicker(e);
+                    }
+                    if (newIndex == this._ui.days.length) {
+                        this.onNextDatePicker(e);
                     }
                 }
             });
