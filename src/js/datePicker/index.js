@@ -701,6 +701,8 @@ export default class datePicker extends EventEmitter {
                     case "Enter":
                     case "Space": 
                         //default action
+                        e.preventDefault()
+                        e.target.click()
                         break;
                     case "Tab": 
                         e.target.blur();
