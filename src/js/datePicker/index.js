@@ -723,10 +723,20 @@ export default class datePicker extends EventEmitter {
                         child.firstElementChild.tabIndex = "0"
                         child.firstElementChild.classList.add("is-focused")
                     }
-                   
-                }  
+                }
             });
         });
+    }
+
+    _checkForTabbableDay() {
+        if (document.querySelectorAll('.date-item[tabindex = "0"]:enabled').length == 0) {
+            if (document.querySelectorAll('.date-item[tabindex = "-1"]:enabled').length >= 1) {
+                var child = document.querySelectorAll('.date-item[tabindex = "-1"]:enabled')[0]
+                child.focus()
+                child.tabIndex = "0"
+                child.classList.add("is-focused")
+            }
+        }
     }
 
     _renderDays() {
@@ -800,7 +810,7 @@ export default class datePicker extends EventEmitter {
 
         });
 
-       
+        this._checkForTabbableDay();
         this._ui.body.dates.appendChild(document.createRange().createContextualFragment(templateDays(days)));
         this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
         this._disable_buttons();
