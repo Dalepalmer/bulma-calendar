@@ -58902,7 +58902,6 @@ var datePicker = function (_EventEmitter) {
                             child.firstElementChild.classList.add("is-focused");
                         }
                     }
-                    _this4._checkForTabbableDay();
                 });
             });
         }
@@ -58993,6 +58992,7 @@ var datePicker = function (_EventEmitter) {
             this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
             this._disable_buttons();
             this._bindDaysEvents();
+            this._checkForTabbableDay();
         }
     }, {
         key: '_disable_buttons',

@@ -724,7 +724,6 @@ export default class datePicker extends EventEmitter {
                         child.firstElementChild.classList.add("is-focused")
                     }
                 }
-                this._checkForTabbableDay();
             });
         });
     }
@@ -815,7 +814,7 @@ export default class datePicker extends EventEmitter {
         this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
         this._disable_buttons();
         this._bindDaysEvents();
-
+        this._checkForTabbableDay()
     }
 
     _disable_buttons() {
