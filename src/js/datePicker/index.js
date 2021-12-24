@@ -732,9 +732,7 @@ export default class datePicker extends EventEmitter {
         if (document.querySelectorAll('.date-item[tabindex = "0"]:enabled').length == 0) {
             if (document.querySelectorAll('.date-item[tabindex = "-1"]:enabled').length >= 1) {
                 var child = document.querySelectorAll('.date-item[tabindex = "-1"]:enabled')[0]
-                child.focus()
                 child.tabIndex = "0"
-                child.classList.add("is-focused")
             }
         }
     }
