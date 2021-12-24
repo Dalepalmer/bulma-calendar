@@ -58902,6 +58902,7 @@ var datePicker = function (_EventEmitter) {
                             child.firstElementChild.classList.add("is-focused");
                         }
                     }
+                    _this4._checkForTabbableDay();
                 });
             });
         }
@@ -58988,7 +58989,6 @@ var datePicker = function (_EventEmitter) {
                 };
             });
 
-            this._checkForTabbableDay();
             this._ui.body.dates.appendChild(document.createRange().createContextualFragment(Object(__WEBPACK_IMPORTED_MODULE_5__templates_days__["a" /* default */])(days)));
             this._ui.days = this._ui.body.dates.querySelectorAll('.datepicker-date');
             this._disable_buttons();
