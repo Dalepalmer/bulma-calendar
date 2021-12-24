@@ -699,7 +699,7 @@ export default class datePicker extends EventEmitter {
                         e.target.click()
                         break;
                     case "Tab": 
-                        e.target.blur()
+                        e.target.parentElement.parentElement.parentElement.parentElement.blur()
                     break;
                     default:
                 }
