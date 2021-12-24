@@ -166,7 +166,7 @@ export default class datePicker extends EventEmitter {
      * EVENTS FUNCTIONS                                 *
      *                                                  *
      ****************************************************/
-    onPreviousDatePicker(e) {
+    onPreviousDatePicker(e, focus) {
 
         if (!this._supportsPassive) {
             e.preventDefault();
@@ -178,6 +178,7 @@ export default class datePicker extends EventEmitter {
 
         this._setVisibleDate(dateFns.setDate(prevMonth, day));
         this.refresh();
+        
 
     }
 
@@ -725,11 +726,15 @@ export default class datePicker extends EventEmitter {
                         child.firstElementChild.tabIndex = "0"
                         child.firstElementChild.classList.add("is-focused")
                     }
-                    if (newIndex == 0) {
+                    if (newIndex == 6) {
                         this.onPreviousDatePicker(e);
+                        this.refresh();
+                        this._ui.days[7]
                     }
                     if (newIndex == this._ui.days.length) {
                         this.onNextDatePicker(e);
+                        this.refresh();
+                        this._ui.days[this._ui.days.length + 1]
                     }
                 }
             });

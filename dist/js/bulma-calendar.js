@@ -58312,7 +58312,7 @@ var datePicker = function (_EventEmitter) {
          * EVENTS FUNCTIONS                                 *
          *                                                  *
          ****************************************************/
-        value: function onPreviousDatePicker(e) {
+        value: function onPreviousDatePicker(e, focus) {
 
             if (!this._supportsPassive) {
                 e.preventDefault();
@@ -58903,11 +58903,15 @@ var datePicker = function (_EventEmitter) {
                             child.firstElementChild.tabIndex = "0";
                             child.firstElementChild.classList.add("is-focused");
                         }
-                        if (newIndex == 0) {
+                        if (newIndex == 6) {
                             _this4.onPreviousDatePicker(e);
+                            _this4.refresh();
+                            _this4._ui.days[7];
                         }
                         if (newIndex == _this4._ui.days.length) {
                             _this4.onNextDatePicker(e);
+                            _this4.refresh();
+                            _this4._ui.days[_this4._ui.days.length + 1];
                         }
                     }
                 });
