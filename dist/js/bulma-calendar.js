@@ -58876,9 +58876,6 @@ var datePicker = function (_EventEmitter) {
                         case "Space":
                             e.target.click();
                             break;
-                        case "Tab":
-                            e.target.click();
-                            break;
                         default:
                     }
                     var children = _this4._ui.days;

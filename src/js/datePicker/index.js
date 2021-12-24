@@ -698,9 +698,6 @@ export default class datePicker extends EventEmitter {
                     case "Space": 
                         e.target.click()
                         break;
-                    case "Tab": 
-                        e.target.click()
-                    break;
                     default:
                 }
                 var children = this._ui.days
