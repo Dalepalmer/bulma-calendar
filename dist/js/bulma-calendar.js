@@ -58880,6 +58880,7 @@ var datePicker = function (_EventEmitter) {
                             //default action
                             break;
                         case "Tab":
+                            e.target.blur();
                             //default action
                             break;
                         default:
