@@ -58888,7 +58888,7 @@ var datePicker = function (_EventEmitter) {
                     }
                     var children = _this4._ui.days;
                     var oldChild = _this4._ui.days[index];
-                    if (oldChild && oldChild.children.length >= 1) {
+                    if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
                         console.log(index, "index");
                         console.log(newIndex, "new");
                         console.log(oldChild.firstElementChild);

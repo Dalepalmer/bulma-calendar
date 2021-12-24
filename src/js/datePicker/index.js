@@ -710,7 +710,7 @@ export default class datePicker extends EventEmitter {
                 }
                 var children = this._ui.days
                 var oldChild = this._ui.days[index]
-                if (oldChild && oldChild.children.length >= 1) {
+                if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
                     console.log(index, "index")
                     console.log(newIndex, "new")
                     console.log(oldChild.firstElementChild)
