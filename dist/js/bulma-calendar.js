@@ -58886,7 +58886,7 @@ var datePicker = function (_EventEmitter) {
                     if (oldChild && oldChild.children.length >= 1) {
                         oldChild.firstElementChild.focus();
                         oldChild.tabIndex = "-1";
-                        oldChild.first.firstElementChild.classList.remove("is-focused");
+                        oldChild.firstElementChild.classList.remove("is-focused");
                     }
                     if (children.length >= newIndex) {
                         var child = _this4._ui.days[newIndex];
@@ -58894,7 +58894,7 @@ var datePicker = function (_EventEmitter) {
                         if (child && child.children.length >= 1) {
                             child.firstElementChild.focus();
                             child.tabIndex = "0";
-                            child.first.firstElementChild.classList.add("is-focused");
+                            child.firstElementChild.classList.add("is-focused");
                         }
                     }
                 });
