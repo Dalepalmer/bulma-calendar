@@ -58898,7 +58898,6 @@ var datePicker = function (_EventEmitter) {
                     }
                     if (children.length >= newIndex) {
                         var child = _this4._ui.days[newIndex];
-                        var oldChild = _this4._ui.days[index];
                         if (child && child.children.length >= 1) {
                             child.firstElementChild.focus();
                             child.firstElementChild.tabIndex = "0";

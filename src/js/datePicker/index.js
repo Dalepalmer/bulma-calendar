@@ -720,7 +720,6 @@ export default class datePicker extends EventEmitter {
                 }
                 if (children.length >= newIndex) {
                     var child = this._ui.days[newIndex]
-                    var oldChild = this._ui.days[index]
                     if (child && child.children.length >= 1) {
                         child.firstElementChild.focus()
                         child.firstElementChild.tabIndex = "0"
