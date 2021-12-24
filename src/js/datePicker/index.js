@@ -728,11 +728,11 @@ export default class datePicker extends EventEmitter {
                     }
                     if (newIndex == 6) {
                         this.onPreviousDatePicker(e);
-                        this._ui.days[7].firstElementChild.focus()
+                        this._ui.days[this._ui.days.length - 1].firstElementChild.focus()
                     }
                     if (newIndex == this._ui.days.length) {
                         this.onNextDatePicker(e);
-                        this._ui.days[this._ui.days.length].firstElementChild.focus()
+                        this._ui.days[7].firstElementChild.focus()
                     }
                 }
             });
