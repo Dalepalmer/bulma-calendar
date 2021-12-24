@@ -59007,11 +59007,11 @@ var datePicker = function (_EventEmitter) {
             disabled_days.forEach(function (day) {
                 if (day.classList.contains("is-disabled")) {
                     if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                        day.firstElementChild.disabled = true;
+                        day.firstElementChild.ariaDisabled = true;
                     }
                 } else {
                     if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                        day.firstElementChild.disabled = false;
+                        day.firstElementChild.ariaDisabled = false;
                     }
                 }
             });
