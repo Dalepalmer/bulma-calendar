@@ -58905,11 +58905,11 @@ var datePicker = function (_EventEmitter) {
                         }
                         if (newIndex == 6) {
                             _this4.onPreviousDatePicker(e);
-                            _this4._ui.days[7].focus();
+                            _this4._ui.days[7].firstElementChild.focus();
                         }
                         if (newIndex == _this4._ui.days.length) {
                             _this4.onNextDatePicker(e);
-                            _this4._ui.days[_this4._ui.days.length + 1].focus();
+                            _this4._ui.days[_this4._ui.days.length].firstElementChild.focus();
                         }
                     }
                 });
