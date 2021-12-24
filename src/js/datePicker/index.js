@@ -679,29 +679,33 @@ export default class datePicker extends EventEmitter {
             });
 
             day.addEventListener('keydown', (e) => {
-                e.preventDefault();
                 var newIndex = index
                 switch (e.code) {
                     case "ArrowUp": 
+                        e.preventDefault();
                         newIndex = index - 7
                         break;
-                    case "ArrowDown": 
+                    case "ArrowDown":
+                        e.preventDefault(); 
                         newIndex = index + 7
                         break;
                     case "ArrowLeft": 
+                        e.preventDefault();
                         newIndex = index - 1
                         break;
                     case "ArrowRight": 
+                        e.preventDefault();
                         newIndex = index + 1
                         break;
                     case "Enter":
                     case "Space": 
-                        e.target.click()
+                        //default action
                         break;
                     case "Tab": 
-                        e.target.parentElement.parentElement.parentElement.parentElement.blur()
+                        //default action
                     break;
                     default:
+                        e.preventDefault();
                 }
                 var children = this._ui.days
                 var oldChild = this._ui.days[index]
