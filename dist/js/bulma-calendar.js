@@ -58324,6 +58324,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](prevMonth, day));
             this.refresh();
+            this._checkForTabbableDay();
         }
     }, {
         key: 'onNextDatePicker',
@@ -58339,6 +58340,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](nextMonth, day));
             this.refresh();
+            this._checkForTabbableDay();
         }
     }, {
         key: 'onSelectMonthDatePicker',
@@ -58891,9 +58893,6 @@ var datePicker = function (_EventEmitter) {
                     var children = _this4._ui.days;
                     var oldChild = _this4._ui.days[index];
                     if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
-                        console.log(index, "index");
-                        console.log(newIndex, "new");
-                        console.log(oldChild.firstElementChild);
                         oldChild.firstElementChild.blur();
                         oldChild.firstElementChild.tabIndex = "-1";
                         oldChild.firstElementChild.classList.remove("is-focused");

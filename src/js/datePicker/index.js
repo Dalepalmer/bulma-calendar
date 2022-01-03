@@ -178,7 +178,7 @@ export default class datePicker extends EventEmitter {
 
         this._setVisibleDate(dateFns.setDate(prevMonth, day));
         this.refresh();
-        
+        this._checkForTabbableDay();
 
     }
 
@@ -194,7 +194,7 @@ export default class datePicker extends EventEmitter {
 
         this._setVisibleDate(dateFns.setDate(nextMonth, day));
         this.refresh();
-
+        this._checkForTabbableDay();
     }
 
     onSelectMonthDatePicker(e) {
@@ -714,9 +714,6 @@ export default class datePicker extends EventEmitter {
                 var children = this._ui.days
                 var oldChild = this._ui.days[index]
                 if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
-                    console.log(index, "index")
-                    console.log(newIndex, "new")
-                    console.log(oldChild.firstElementChild)
                     oldChild.firstElementChild.blur()
                     oldChild.firstElementChild.tabIndex = "-1"
                     oldChild.firstElementChild.classList.remove("is-focused")
