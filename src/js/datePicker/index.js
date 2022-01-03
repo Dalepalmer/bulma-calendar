@@ -829,11 +829,11 @@ export default class datePicker extends EventEmitter {
         disabled_days.forEach((day) => {
             if (day.classList.contains("is-disabled")) {
                 if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                    day.firstElementChild.ariaDisabled = true
+                    day.firstElementChild.disabled = true
                 }
             } else {
                 if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                    day.firstElementChild.ariaDisabled = false
+                    day.firstElementChild.disabled = false
                 }
             }
         });

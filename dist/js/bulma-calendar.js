@@ -59010,11 +59010,11 @@ var datePicker = function (_EventEmitter) {
             disabled_days.forEach(function (day) {
                 if (day.classList.contains("is-disabled")) {
                     if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                        day.firstElementChild.ariaDisabled = true;
+                        day.firstElementChild.disabled = true;
                     }
                 } else {
                     if (day.firstElementChild && day.firstElementChild.nodeName === "BUTTON") {
-                        day.firstElementChild.ariaDisabled = false;
+                        day.firstElementChild.disabled = false;
                     }
                 }
             });
