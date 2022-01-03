@@ -178,8 +178,7 @@ export default class datePicker extends EventEmitter {
 
         this._setVisibleDate(dateFns.setDate(prevMonth, day));
         this.refresh();
-        this._checkForTabbableDay();
-
+        this._ui.days[this._ui.days.length - 1].firstElementChild.focus()
     }
 
     onNextDatePicker(e) {
@@ -194,7 +193,7 @@ export default class datePicker extends EventEmitter {
 
         this._setVisibleDate(dateFns.setDate(nextMonth, day));
         this.refresh();
-        this._checkForTabbableDay();
+        this._ui.days[7].firstElementChild.focus()
     }
 
     onSelectMonthDatePicker(e) {

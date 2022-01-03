@@ -1,5 +1,5 @@
 export default (data) => {
-  return `<div class="datepicker">
+  return `<div role="region" class="datepicker" aria-label="choose dates for scheduling">
     <div class="datepicker-nav">
         <button aria-label="previous month" type="button" class="datepicker-nav-previous button is-small is-text">${data.icons.previous}</button>
         <div class="datepicker-nav-month-year">

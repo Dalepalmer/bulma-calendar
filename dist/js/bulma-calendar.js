@@ -58324,7 +58324,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](prevMonth, day));
             this.refresh();
-            this._checkForTabbableDay();
+            this._ui.days[this._ui.days.length - 1].firstElementChild.focus();
         }
     }, {
         key: 'onNextDatePicker',
@@ -58340,7 +58340,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](nextMonth, day));
             this.refresh();
-            this._checkForTabbableDay();
+            this._ui.days[7].firstElementChild.focus();
         }
     }, {
         key: 'onSelectMonthDatePicker',
@@ -59278,7 +59278,7 @@ var datePicker = function (_EventEmitter) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function (data) {
-  return "<div class=\"datepicker\">\n    <div class=\"datepicker-nav\">\n        <button aria-label=\"previous month\" type=\"button\" class=\"datepicker-nav-previous button is-small is-text\">" + data.icons.previous + "</button>\n        <div class=\"datepicker-nav-month-year\">\n          <div aria-live=\"polite\" class=\"datepicker-nav-month\"></div>\n          &nbsp;\n          <div aria-live=\"polite\" class=\"datepicker-nav-year\"></div>\n        </div>\n        <button aria-label=\"next month\" type=\"button\" class=\"datepicker-nav-next button is-small is-text\">" + data.icons.next + "</button>\n      </div>\n      <div class=\"datepicker-body\">\n        <div class=\"datepicker-dates is-active\"></div>\n        <div class=\"datepicker-months\"></div>\n        <div class=\"datepicker-years\"></div>\n      </div>\n    </div>";
+  return "<div role=\"region\" class=\"datepicker\" aria-label=\"choose dates for scheduling\">\n    <div class=\"datepicker-nav\">\n        <button aria-label=\"previous month\" type=\"button\" class=\"datepicker-nav-previous button is-small is-text\">" + data.icons.previous + "</button>\n        <div class=\"datepicker-nav-month-year\">\n          <div aria-live=\"polite\" class=\"datepicker-nav-month\"></div>\n          &nbsp;\n          <div aria-live=\"polite\" class=\"datepicker-nav-year\"></div>\n        </div>\n        <button aria-label=\"next month\" type=\"button\" class=\"datepicker-nav-next button is-small is-text\">" + data.icons.next + "</button>\n      </div>\n      <div class=\"datepicker-body\">\n        <div class=\"datepicker-dates is-active\"></div>\n        <div class=\"datepicker-months\"></div>\n        <div class=\"datepicker-years\"></div>\n      </div>\n    </div>";
 });
 
 /***/ }),
