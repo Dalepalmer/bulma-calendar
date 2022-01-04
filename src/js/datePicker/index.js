@@ -711,9 +711,17 @@ export default class datePicker extends EventEmitter {
                         e.preventDefault();
                 }
                 var children = this._ui.days
+                var activeChildren = this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled')
                 var oldChild = this._ui.days[index]
                 var child = this._ui.days[newIndex]
-                if (child.children.length >= 1 && !child.firstElementChild.disabled) {
+                if (child && child.children.length >= 1) {
+                    if (child.firstElementChild.disabled) {
+                       var activeIndex = activeChildren.findIndex((x) => x.dataset.index == oldChild.firstElementChild.index)
+                       if (activeIndex !== -1) {
+                        var diff = index - newIndex
+                        child = activeChildren[activeIndex + diff]
+                       }
+                    }
                     if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
                         oldChild.firstElementChild.blur()
                         oldChild.firstElementChild.tabIndex = "-1"
@@ -725,15 +733,15 @@ export default class datePicker extends EventEmitter {
                             child.firstElementChild.tabIndex = "0"
                             child.firstElementChild.classList.add("is-focused")
                         }
-                        if (newIndex == 6) {
-                            this.onPreviousDatePicker(e);
-                            this._ui.days[this._ui.days.length - 1].firstElementChild.focus()
-                        }
-                        if (newIndex == this._ui.days.length) {
-                            this.onNextDatePicker(e);
-                            this._ui.days[7].firstElementChild.focus()
-                        }
                     }
+                }
+                if (newIndex == 6) {
+                    this.onPreviousDatePicker(e);
+                    this._ui.days[this._ui.days.length - 1].firstElementChild.focus()
+                }
+                if (newIndex == this._ui.days.length) {
+                    this.onNextDatePicker(e);
+                    this._ui.days[7].firstElementChild.focus()
                 }
             });
         });

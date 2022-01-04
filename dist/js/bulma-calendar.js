@@ -58891,9 +58891,19 @@ var datePicker = function (_EventEmitter) {
                             e.preventDefault();
                     }
                     var children = _this4._ui.days;
+                    var activeChildren = _this4._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled');
                     var oldChild = _this4._ui.days[index];
                     var child = _this4._ui.days[newIndex];
-                    if (child.children.length >= 1 && !child.firstElementChild.disabled) {
+                    if (child && child.children.length >= 1) {
+                        if (child.firstElementChild.disabled) {
+                            var activeIndex = activeChildren.findIndex(function (x) {
+                                return x.dataset.index == oldChild.firstElementChild.index;
+                            });
+                            if (activeIndex !== -1) {
+                                var diff = index - newIndex;
+                                child = activeChildren[activeIndex + diff];
+                            }
+                        }
                         if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
                             oldChild.firstElementChild.blur();
                             oldChild.firstElementChild.tabIndex = "-1";
@@ -58905,15 +58915,15 @@ var datePicker = function (_EventEmitter) {
                                 child.firstElementChild.tabIndex = "0";
                                 child.firstElementChild.classList.add("is-focused");
                             }
-                            if (newIndex == 6) {
-                                _this4.onPreviousDatePicker(e);
-                                _this4._ui.days[_this4._ui.days.length - 1].firstElementChild.focus();
-                            }
-                            if (newIndex == _this4._ui.days.length) {
-                                _this4.onNextDatePicker(e);
-                                _this4._ui.days[7].firstElementChild.focus();
-                            }
                         }
+                    }
+                    if (newIndex == 6) {
+                        _this4.onPreviousDatePicker(e);
+                        _this4._ui.days[_this4._ui.days.length - 1].firstElementChild.focus();
+                    }
+                    if (newIndex == _this4._ui.days.length) {
+                        _this4.onNextDatePicker(e);
+                        _this4._ui.days[7].firstElementChild.focus();
                     }
                 });
             });
