@@ -58922,9 +58922,10 @@ var datePicker = function (_EventEmitter) {
         key: '_checkForTabbableDay',
         value: function _checkForTabbableDay() {
             if (this._ui.body.dates.querySelectorAll('.date-item[tabindex = "0"]:enabled').length == 0) {
-                if (document.querySelectorAll('.date-item[tabindex = "-1"]:enabled').length >= 1) {
-                    var child = document.querySelectorAll('.date-item[tabindex = "-1"]:enabled')[0];
+                if (this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled').length >= 1) {
+                    var child = this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled')[0];
                     child.tabIndex = "0";
+                    child.focus();
                 }
             }
         }
