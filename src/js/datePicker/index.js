@@ -713,7 +713,7 @@ export default class datePicker extends EventEmitter {
                 var children = this._ui.days
                 var oldChild = this._ui.days[index]
                 var child = this._ui.days[newIndex]
-                if (!child.disabled) {
+                if (child.children.length >= 1 && !child.firstElementChild.disabled) {
                     if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
                         oldChild.firstElementChild.blur()
                         oldChild.firstElementChild.tabIndex = "-1"
