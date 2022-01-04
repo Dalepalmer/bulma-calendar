@@ -711,12 +711,12 @@ export default class datePicker extends EventEmitter {
                         e.preventDefault();
                 }
                 var children = this._ui.days
-                var activeChildren = this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled')
+                var activeChildren = this._ui.body.dates.querySelectorAll('.date-item:enabled')
                 var oldChild = this._ui.days[index]
                 var child = this._ui.days[newIndex]
                 if (child && child.children.length >= 1) {
                     if (child.firstElementChild.disabled) {
-                       var activeIndex = activeChildren.findIndex((x) => x.dataset.index == oldChild.firstElementChild.index)
+                       var activeIndex =  Array.from(activeChildren).findIndex((x) => x.ariaLabel == oldChild.firstElementChild.ariaLabel)
                        if (activeIndex !== -1) {
                         var diff = index - newIndex
                         child = activeChildren[activeIndex + diff]

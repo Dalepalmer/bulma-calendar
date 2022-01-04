@@ -58891,13 +58891,13 @@ var datePicker = function (_EventEmitter) {
                             e.preventDefault();
                     }
                     var children = _this4._ui.days;
-                    var activeChildren = _this4._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled');
+                    var activeChildren = _this4._ui.body.dates.querySelectorAll('.date-item:enabled');
                     var oldChild = _this4._ui.days[index];
                     var child = _this4._ui.days[newIndex];
                     if (child && child.children.length >= 1) {
                         if (child.firstElementChild.disabled) {
-                            var activeIndex = activeChildren.findIndex(function (x) {
-                                return x.dataset.index == oldChild.firstElementChild.index;
+                            var activeIndex = Array.from(activeChildren).findIndex(function (x) {
+                                return x.ariaLabel == oldChild.firstElementChild.ariaLabel;
                             });
                             if (activeIndex !== -1) {
                                 var diff = index - newIndex;
