@@ -744,7 +744,6 @@ export default class datePicker extends EventEmitter {
             if (this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled').length >= 1) {
                 var child = this._ui.body.dates.querySelectorAll('.date-item[tabindex = "-1"]:enabled')[0]
                 child.tabIndex = "0"
-                child.focus()
             }
         }
     }
