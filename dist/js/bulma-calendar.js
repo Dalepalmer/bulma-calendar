@@ -58892,25 +58892,27 @@ var datePicker = function (_EventEmitter) {
                     }
                     var children = _this4._ui.days;
                     var oldChild = _this4._ui.days[index];
-                    if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
-                        oldChild.firstElementChild.blur();
-                        oldChild.firstElementChild.tabIndex = "-1";
-                        oldChild.firstElementChild.classList.remove("is-focused");
-                    }
-                    if (children.length >= newIndex) {
-                        var child = _this4._ui.days[newIndex];
-                        if (child && child.children.length >= 1) {
-                            child.firstElementChild.focus();
-                            child.firstElementChild.tabIndex = "0";
-                            child.firstElementChild.classList.add("is-focused");
+                    var child = _this4._ui.days[newIndex];
+                    if (!child.disabled) {
+                        if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
+                            oldChild.firstElementChild.blur();
+                            oldChild.firstElementChild.tabIndex = "-1";
+                            oldChild.firstElementChild.classList.remove("is-focused");
                         }
-                        if (newIndex == 6) {
-                            _this4.onPreviousDatePicker(e);
-                            _this4._ui.days[_this4._ui.days.length - 1].firstElementChild.focus();
-                        }
-                        if (newIndex == _this4._ui.days.length) {
-                            _this4.onNextDatePicker(e);
-                            _this4._ui.days[7].firstElementChild.focus();
+                        if (children.length >= newIndex) {
+                            if (child && child.children.length >= 1) {
+                                child.firstElementChild.focus();
+                                child.firstElementChild.tabIndex = "0";
+                                child.firstElementChild.classList.add("is-focused");
+                            }
+                            if (newIndex == 6) {
+                                _this4.onPreviousDatePicker(e);
+                                _this4._ui.days[_this4._ui.days.length - 1].firstElementChild.focus();
+                            }
+                            if (newIndex == _this4._ui.days.length) {
+                                _this4.onNextDatePicker(e);
+                                _this4._ui.days[7].firstElementChild.focus();
+                            }
                         }
                     }
                 });
