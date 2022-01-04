@@ -58324,7 +58324,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](prevMonth, day));
             this.refresh();
-            this._ui.days[this._ui.days.length - 1].firstElementChild.focus();
+            this._checkForTabbableDay();
         }
     }, {
         key: 'onNextDatePicker',
@@ -58340,7 +58340,7 @@ var datePicker = function (_EventEmitter) {
 
             this._setVisibleDate(__WEBPACK_IMPORTED_MODULE_2_date_fns__["C" /* setDate */](nextMonth, day));
             this.refresh();
-            this._ui.days[7].firstElementChild.focus();
+            this._checkForTabbableDay();
         }
     }, {
         key: 'onSelectMonthDatePicker',
