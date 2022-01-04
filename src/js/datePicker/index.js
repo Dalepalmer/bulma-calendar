@@ -719,7 +719,7 @@ export default class datePicker extends EventEmitter {
                        var activeIndex =  Array.from(activeChildren).findIndex((x) => x.ariaLabel == oldChild.firstElementChild.ariaLabel)
                        if (activeIndex !== -1) {
                         var diff = index - newIndex
-                        child = activeChildren[activeIndex + diff]
+                        child = activeChildren[activeIndex + diff].parentElement
                        }
                     }
                     if (oldChild && oldChild.children.length >= 1 && e.code != "Tab") {
@@ -728,7 +728,7 @@ export default class datePicker extends EventEmitter {
                         oldChild.firstElementChild.classList.remove("is-focused")
                     }
                     if (children.length >= newIndex) {
-                        if (child && (child.children.length >= 1 || child.className == "date-item")) {
+                        if (child && child.children.length >= 1) {
                             child.firstElementChild.focus()
                             child.firstElementChild.tabIndex = "0"
                             child.firstElementChild.classList.add("is-focused")
