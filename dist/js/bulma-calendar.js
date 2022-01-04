@@ -58910,7 +58910,7 @@ var datePicker = function (_EventEmitter) {
                             oldChild.firstElementChild.classList.remove("is-focused");
                         }
                         if (children.length >= newIndex) {
-                            if (child && child.children.length >= 1) {
+                            if (child && (child.children.length >= 1 || child.className == "date-item")) {
                                 child.firstElementChild.focus();
                                 child.firstElementChild.tabIndex = "0";
                                 child.firstElementChild.classList.add("is-focused");
