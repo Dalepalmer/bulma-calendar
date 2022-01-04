@@ -58900,7 +58900,7 @@ var datePicker = function (_EventEmitter) {
                                 return x.ariaLabel == oldChild.firstElementChild.ariaLabel;
                             });
                             if (activeIndex !== -1) {
-                                var diff = index - newIndex;
+                                var diff = newIndex - index;
                                 child = activeChildren[activeIndex + diff].parentElement;
                             }
                         }

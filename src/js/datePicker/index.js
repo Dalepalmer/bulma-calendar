@@ -718,7 +718,7 @@ export default class datePicker extends EventEmitter {
                     if (child.firstElementChild.disabled) {
                        var activeIndex =  Array.from(activeChildren).findIndex((x) => x.ariaLabel == oldChild.firstElementChild.ariaLabel)
                        if (activeIndex !== -1) {
-                        var diff = index - newIndex
+                        var diff = newIndex - index
                         child = activeChildren[activeIndex + diff].parentElement
                        }
                     }
